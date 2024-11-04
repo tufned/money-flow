@@ -1,16 +1,16 @@
 import '~/styles/index.scss';
 import { ReactNode } from 'react';
 import { metaData } from '~/constants/metadata';
-import Navbar from '~/components/navbar/Navbar';
+import Header from '~/components/header/Header';
 
 export const metadata = metaData;
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main>
-      <Navbar />
-      {children}
-    </main>
+    <div className='flex flex-col'>
+      <Header />
+      <div className='w-full flex items-center justify-center'>{children}</div>
+    </div>
   );
 };
 

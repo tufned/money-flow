@@ -1,0 +1,46 @@
+@import "~/styles/partials/utils";
+@import "~/styles/partials/theme";
+
+
+.navbar {
+  @apply rounded-full bg-primary;
+
+  .navbarItem {
+    @include flex-center;
+    @include transition-main;
+    @apply rounded-full w-16 h-16 cursor-pointer;
+  }
+
+  .navbarItem:hover, .navbarItemActive {
+    @extend %navbar-item-active
+  }
+}
+
+
+%navbar-item-active {
+  @apply bg-dark text-primaryVivid;
+
+  .homeIcon {
+    @apply stroke-primaryVivid;
+  }
+
+  .notesIcon {
+    @apply stroke-primaryVivid;
+  }
+
+  .reportIcon {
+    @apply fill-primaryVivid;
+  }
+
+  .userIcon {
+    path, circle {
+      @apply stroke-primaryVivid;
+    }
+  }
+
+  .bellIcon, .signOutIcon, .notesIcon, .homeIcon, .settingsIcon {
+    path {
+      @apply stroke-primaryVivid;
+    }
+  }
+}

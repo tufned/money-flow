@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "partials/utils";
+@import "partials/theme";
+
+* {
+  @apply text-dark;
+}
+
+.flex-center {
+  @include flex-center;
+}
+.transition-main {
+  @include transition-main;
+}
