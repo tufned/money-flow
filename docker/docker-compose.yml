@@ -1,0 +1,63 @@
+services:
+    laravel_web:
+        build:
+            context: ../backend
+            dockerfile: Dockerfile
+        container_name: laravel_web
+        working_dir: /var/www
+        volumes:
+            - ../backend:/var/www
+        networks:
+            - app-network
+
+    laravel_database:
+        image: postgres:13
+        container_name: laravel_database
+        environment:
+            POSTGRES_DB: laravel
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+        volumes:
+            - ./db_data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        networks:
+            - app-network
+
+    laravel_nginx:
+        image: nginx:latest
+        container_name: laravel_nginx
+        ports:
+            - "8000:80"
+        volumes:
+            - ../backend:/var/www
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx/snippets/fastcgi-php.conf:/etc/nginx/snippets/fastcgi-php.conf
+            - ./nginx/log:/var/log/nginx
+        depends_on:
+            - laravel_web
+        networks:
+            - app-network
+
+    nextjs_app:
+        build:
+            context: ../frontend
+            dockerfile: Dockerfile
+        container_name: nextjs_app
+        ports:
+            - "3080:3000"
+        volumes:
+            - ../frontend:/app
+            - /app/node_modules
+            - /app/.next
+        stdin_open: true
+        tty: true
+        networks:
+            - app-network
+        depends_on:
+            - laravel_web
+
+networks:
+    app-network:
+        driver: bridge
+

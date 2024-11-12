@@ -9,7 +9,7 @@ import BellIcon from '~/assets/icons/bell.svg';
 import SettingsIcon from '~/assets/icons/settings.svg';
 
 import React from 'react';
-import styles from '~/components/navbar/Navbar.module.scss';
+import styles from '~/components/navbar/navbar.module.scss';
 import { pagesTitles } from '~/constants/pages-titles';
 import Link from 'next/link';
 import { routes } from '~/constants/routes';
