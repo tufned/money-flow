@@ -6,3 +6,16 @@
 4. Create **pull request**
 5. Link pull request to an issue
 6. **Squash and merge** into `dev` branch 
+7. **Delete** task branch (e.g. **feature/125/create-navbar**)
+
+
+## How to run
+
+```bash
+cd docker
+```
+```bash
+docker-compose up -d
+```
+Then open [localhost:3080](http://localhost:3080) with your browser
+(localhost:8000)

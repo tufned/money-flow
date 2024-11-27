@@ -2,5 +2,5 @@ export const routes = {
   index: '/',
   notes: '/notes',
   report: '/report',
-  profile: '/profile',
+  profile: '/profile'
 } as const;

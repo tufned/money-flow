@@ -10,16 +10,15 @@ const Tooltip: FC<TooltipProps> = ({ children, text, position = 'bottom' }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const generatePositionClass = () => {
-    const spacing = '108%';
     switch (position) {
       case 'top':
-        return `bottom-[${spacing}]`;
+        return 'bottom-full mb-2';
       case 'bottom':
-        return `top-[${spacing}]`;
+        return 'top-full mt-2';
       case 'left':
-        return `right-[${spacing}]`;
+        return 'right-full mr-2';
       case 'right':
-        return `left-[${spacing}]`;
+        return 'left-full ml-2';
     }
   };
 

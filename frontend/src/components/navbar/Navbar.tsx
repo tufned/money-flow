@@ -14,7 +14,7 @@ import { pagesTitles } from '~/constants/pages-titles';
 import Link from 'next/link';
 import { routes } from '~/constants/routes';
 import { usePathname } from 'next/navigation';
-import { Routes } from '~/types/common';
+import { Routes } from '~/types/common.types';
 import Tooltip from '~/components/ui/tooltip/Tooltip';
 
 const Navbar = () => {
